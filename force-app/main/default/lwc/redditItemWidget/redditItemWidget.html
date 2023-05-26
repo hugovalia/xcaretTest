@@ -1,0 +1,36 @@
+<template>
+
+    <div>
+        <lightning-button
+            variant="brand"
+            label="Refrescar items"
+            title="Click me"
+            onclick={handleRefresh}
+        >
+        </lightning-button>
+
+        <lightning-button
+            variant="destructive"
+            label="Restaurar items (sincronizar)"
+            title="Click me"
+            onclick={handleClick}
+        >
+    </lightning-button>
+    </div>
+    <br />
+    <br />
+    <div>
+        <lightning-datatable
+                key-field="id"
+                data={items.data}
+                columns={columns}
+                hide-checkbox-column
+                onrowaction={handleRowAction}
+                >
+        </lightning-datatable>
+    </div>
+    
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Loading" size="xx-small"></lightning-spinner>
+    </template>
+</template>
